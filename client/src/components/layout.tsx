@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Anchor, Phone, Mail, MapPin } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -21,9 +21,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-            <div className="bg-primary p-2 rounded-lg text-white group-hover:bg-primary/90 transition-colors">
-              <Anchor className="h-6 w-6" />
-            </div>
             <div className="flex flex-col">
               <span className="font-heading font-bold text-xl leading-none text-primary">YDFDA</span>
               <span className="text-[10px] text-muted-foreground uppercase tracking-widest">Yukon Delta Fisheries</span>
@@ -93,7 +90,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 grid md:grid-cols-4 gap-12">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <Anchor className="h-6 w-6 text-secondary" />
               <span className="font-heading font-bold text-2xl text-white">YDFDA</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
