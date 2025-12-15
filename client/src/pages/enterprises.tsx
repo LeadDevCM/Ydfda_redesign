@@ -151,7 +151,7 @@ export default function Enterprises() {
                 </a>
               </div>
               <div className="order-1 lg:order-2 h-64 bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center">
-                 <img src="https://ydfda.org/sites/default/files/styles/large/public/2020-07/YRT%20Logo.png?itok=8jX8jZ8_" alt="Yukon River Towing" className="max-h-full max-w-full p-8" />
+                 <img src="https://www.yukonrivertowing.com/wp-content/themes/yukon-river-towing/assets/img/hero-image.jpg" alt="Yukon River Towing" className="max-h-full max-w-full object-cover w-full h-full" />
               </div>
             </div>
 
