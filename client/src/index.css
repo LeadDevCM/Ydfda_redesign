@@ -9,40 +9,51 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   
-  /* Original YDFDA Brand Colors */
+  /* Brand Colors from Spec */
+  /* Primary Teal: #4e7f76 (hsl(169, 24%, 40%)) */
+  /* Dark Teal: #336666 (hsl(180, 33%, 30%)) */
+  /* Primary Orange: #d16103 (hsl(27, 97%, 42%)) */
+  
   --color-background: hsl(0 0% 100%);
-  --color-foreground: hsl(215 28% 17%); /* Darker blue-grey for text */
+  --color-foreground: hsl(0 0% 20%); /* #333333 Dark Gray */
 
-  /* Strong Royal Blue from logo/header */
-  --color-primary: hsl(215 80% 35%); 
+  --color-primary: hsl(169 24% 40%); /* Primary Teal */
   --color-primary-foreground: hsl(0 0% 100%);
 
-  /* Gold/Yellow accent */
-  --color-secondary: hsl(45 90% 50%); 
-  --color-secondary-foreground: hsl(215 80% 20%);
+  --color-secondary: hsl(27 97% 42%); /* Primary Orange */
+  --color-secondary-foreground: hsl(0 0% 100%);
 
-  --color-muted: hsl(210 20% 96%);
-  --color-muted-foreground: hsl(215 20% 45%);
+  --color-muted: hsl(0 0% 96%); /* #f5f5f5 Light Gray */
+  --color-muted-foreground: hsl(0 0% 47%); /* #777777 Gray */
 
-  --color-accent: hsl(210 20% 96%);
-  --color-accent-foreground: hsl(215 80% 35%);
+  --color-accent: hsl(0 0% 94%); /* #efefef Off White */
+  --color-accent-foreground: hsl(169 24% 40%);
 
   --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(215 28% 17%);
-  --color-card-border: hsl(214 32% 91%);
+  --color-card-foreground: hsl(0 0% 20%);
+  --color-card-border: hsl(0 0% 87%); /* #dddddd */
 
   --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(215 28% 17%);
+  --color-popover-foreground: hsl(0 0% 20%);
 
-  --color-border: hsl(214 32% 91%);
-  --color-input: hsl(214 32% 91%);
-  --color-ring: hsl(215 80% 35%);
+  --color-border: hsl(0 0% 87%); /* #dddddd */
+  --color-input: hsl(0 0% 33%); /* #555555 Medium Gray */
+  --color-ring: hsl(169 24% 40%);
 
-  --color-destructive: hsl(0 84.2% 60.2%);
-  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-destructive: hsl(358 63% 58%); /* #d9534f Danger Red */
+  --color-destructive-foreground: hsl(0 0% 100%);
 
-  --font-sans: 'Inter', sans-serif;
-  --font-heading: 'Montserrat', sans-serif;
+  /* Custom Brand Colors */
+  --color-brand-teal: hsl(169 24% 40%);
+  --color-brand-teal-dark: hsl(180 33% 30%);
+  --color-brand-teal-medium: hsl(172 21% 35%);
+  
+  --color-brand-orange: hsl(27 97% 42%);
+  --color-brand-orange-light: hsl(20 62% 58%);
+  --color-brand-orange-burnt: hsl(25 53% 55%); /* #C97E51 */
+
+  --font-sans: 'Oxygen', sans-serif;
+  --font-heading: 'Oxygen', sans-serif; /* All text uses Oxygen */
   
   --radius: 0.5rem;
 }
@@ -55,6 +66,16 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold tracking-tight;
+    @apply font-bold tracking-tight text-[#333333]; /* Dark Gray headings */
+  }
+  
+  /* Button Styles from Spec */
+  .btn-primary {
+    background-color: var(--color-brand-orange);
+    color: white;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-brand-teal);
+    color: white;
   }
 }
