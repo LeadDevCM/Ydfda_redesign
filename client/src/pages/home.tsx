@@ -17,9 +17,9 @@ export default function Home() {
         size="large"
       />
 
-      <Section className="bg-white py-0 md:py-0">
+      <Section className="bg-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-6 -mt-24 relative z-10 mb-24">
+          <div className="grid md:grid-cols-3 gap-6 relative z-10">
             
             {/* Feature Block 1: Scholarships */}
             <Link href="/scholarships">
