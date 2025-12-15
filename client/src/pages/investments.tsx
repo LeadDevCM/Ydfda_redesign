@@ -2,44 +2,73 @@ import Layout from "@/components/layout";
 import { Hero } from "@/components/hero";
 import { Section } from "@/components/section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Ship, Anchor, Fish } from "lucide-react";
+import { Ship, Anchor } from "lucide-react";
 
 export default function Investments() {
   const vessels = [
     {
+      name: "Kotlik Challenger",
+      type: "116’ Pollock/Cod Trawler",
+      ownership: "100% Ownership via YDFI",
+      operations: "Bering Sea pollock fishery, Pacific Cod fishery, West Coast hake fishery.",
+      employment: "Purchased April 2022.",
+      image: "https://ydfda.org/sites/default/files/styles/investments_image_480x480_/public/2024-05/image004.jpg?itok=XjSCtZT6"
+    },
+    {
+      name: "Nunam Iqua Harvester",
+      type: "99’ Trawler",
+      ownership: "100% Ownership via YDFI",
+      operations: "Bering Sea and Aleutian Islands Pollock, Pacific Cod, Yellow Fin Sole.",
+      employment: "Purchased December 2022.",
+      image: "https://ydfda.org/sites/default/files/styles/investments_image_480x480_/public/2024-05/image005.png?itok=Kvl_sVJv"
+    },
+    {
+      name: "M/V Golden Alaska",
+      type: "305-foot Pollock Mothership",
+      ownership: "58% Ownership via YDFI",
+      operations: "Pollock mothership processing.",
+      employment: "Provides processing positions for Yukon Delta residents.",
+      image: "https://ydfda.org/sites/default/files/styles/investments_image_480x480_/public/2020-08/Golden-Alaska.jpg?itok=uaLZMwag"
+    },
+    {
       name: "C/P Baranof",
-      type: "182-foot crab/cod catcher processor",
-      ownership: "41% Ownership",
+      type: "182-foot Crab/Cod Catcher Processor",
+      ownership: "41% Ownership via YDFDA",
       operations: "Harvests and processes king crab, Bairdi crab, Opilio crab, Pacific cod, and sablefish.",
-      employment: "Year-round crew positions available for Yukon Delta residents."
+      employment: "Year-round crew positions available for Yukon Delta residents.",
+      image: "https://ydfda.org/sites/default/files/styles/investments_image_480x480_/public/2020-08/Romanzof-Baranof.jpg?itok=nB2ZAX7A"
     },
     {
       name: "C/P Courageous",
-      type: "180-foot crab/longline catcher processor",
-      ownership: "85% Ownership",
+      type: "180-foot Crab/Longline Catcher Processor",
+      ownership: "85% Ownership via YDFDA",
       operations: "Harvests and processes Opilio crab, brown king crab, red king crab, Pacific cod, and sablefish.",
-      employment: "Year-round employment opportunities for regional residents."
+      employment: "Year-round employment opportunities for regional residents.",
+      image: "https://ydfda.org/sites/default/files/styles/investments_image_480x480_/public/2020-08/Cosurageous.jpg?itok=okE5qgwP"
     },
     {
       name: "F/V Kiska Sea",
-      type: "125-foot crab catcher vessel",
+      type: "125-foot Crab Catcher Vessel",
       ownership: "45% Ownership via YDFI",
       operations: "Harvests king, tanner, and Opilio crab.",
-      employment: "Crew positions available."
+      employment: "Year-round crew positions available for Yukon Delta residents.",
+      image: "https://ydfda.org/sites/default/files/styles/investments_image_480x480_/public/2020-08/Kiska-Sea.jpg?itok=-N_qSO-z"
     },
     {
       name: "F/V Ocean Leader",
-      type: "120-foot trawler",
+      type: "120-foot Trawler",
       ownership: "76% Ownership via YDFI",
       operations: "Harvests mothership & CDQ pollock quota for M/V Golden Alaska.",
-      employment: "Crew positions available."
+      employment: "Provides apprenticeship opportunities for Yukon Delta residents.",
+      image: "https://ydfda.org/sites/default/files/styles/investments_image_480x480_/public/2020-08/emmonak-Ocean-Leader.jpg?itok=yeOpfELU"
     },
     {
       name: "F/V American Beauty",
-      type: "123-foot trawler",
+      type: "123-foot Trawler",
       ownership: "75% Ownership via YDFI",
       operations: "Harvests mothership & CDQ pollock quota for M/V Golden Alaska.",
-      employment: "Crew positions available."
+      employment: "Offers apprenticeship opportunities for Yukon Delta residents.",
+      image: "https://ydfda.org/sites/default/files/styles/investments_image_480x480_/public/2020-08/Alakanuk-American-Beauty.jpg?itok=20EuSD_N"
     }
   ];
 
@@ -62,26 +91,36 @@ export default function Investments() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {vessels.map((vessel, index) => (
-              <Card key={index} className="h-full border-t-4 border-t-[#4e7f76] hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-[#4e7f76]/10 flex items-center justify-center text-[#4e7f76] mb-4">
-                    <Ship className="w-6 h-6" />
+              <Card key={index} className="h-full border border-[#dddddd] hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+                <div className="h-48 overflow-hidden relative group">
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10" />
+                  <img 
+                    src={vessel.image} 
+                    alt={vessel.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 right-4 z-20 bg-white/90 p-2 rounded-full text-[#4e7f76]">
+                    <Ship className="w-5 h-5" />
                   </div>
+                </div>
+                
+                <CardHeader className="pb-2">
                   <CardTitle className="text-xl font-bold text-[#333333]">{vessel.name}</CardTitle>
-                  <div className="text-sm font-semibold text-[#d16103] mt-1">{vessel.ownership}</div>
+                  <div className="text-sm font-bold text-[#d16103] mt-1">{vessel.ownership}</div>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                
+                <CardContent className="space-y-4 flex-1">
                   <div>
-                    <span className="text-sm font-semibold text-[#777777] block uppercase tracking-wide">Vessel Type</span>
-                    <span className="text-[#333333]">{vessel.type}</span>
+                    <span className="text-xs font-bold text-[#999999] uppercase tracking-wide">Vessel Type</span>
+                    <p className="text-[#333333] text-sm mt-0.5">{vessel.type}</p>
                   </div>
                   <div>
-                    <span className="text-sm font-semibold text-[#777777] block uppercase tracking-wide">Operations</span>
-                    <span className="text-[#555555] text-sm">{vessel.operations}</span>
+                    <span className="text-xs font-bold text-[#999999] uppercase tracking-wide">Operations</span>
+                    <p className="text-[#555555] text-sm mt-0.5">{vessel.operations}</p>
                   </div>
                   <div>
-                    <span className="text-sm font-semibold text-[#777777] block uppercase tracking-wide">Opportunities</span>
-                    <span className="text-[#555555] text-sm">{vessel.employment}</span>
+                    <span className="text-xs font-bold text-[#999999] uppercase tracking-wide">Opportunities</span>
+                    <p className="text-[#555555] text-sm mt-0.5">{vessel.employment}</p>
                   </div>
                 </CardContent>
               </Card>
