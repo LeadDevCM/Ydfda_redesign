@@ -21,9 +21,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex flex-col bg-background font-sans">
       {/* Navigation */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-            <div className="flex flex-col">
+        <div className="container mx-auto px-4 h-24 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-4 group cursor-pointer">
+            <img 
+              src="https://ydfda.org/sites/default/files/2024-05/YDFDA%20Logo%20high_0.jpg" 
+              alt="YDFDA Logo" 
+              className="h-16 w-auto object-contain"
+            />
+            <div className="hidden md:flex flex-col">
               <span className="font-heading font-bold text-xl leading-none text-primary">YDFDA</span>
               <span className="text-[10px] text-muted-foreground uppercase tracking-widest">Yukon Delta Fisheries</span>
             </div>
@@ -91,7 +96,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <footer className="bg-slate-900 text-slate-200 py-16">
         <div className="container mx-auto px-4 grid md:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4 bg-white/5 p-4 rounded-lg inline-block">
+               <img 
+                src="https://ydfda.org/sites/default/files/2024-05/YDFDA%20Logo%20high_0.jpg" 
+                alt="YDFDA Logo" 
+                className="h-12 w-auto object-contain mix-blend-multiply bg-white rounded p-1"
+              />
               <span className="font-heading font-bold text-2xl text-white">YDFDA</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
