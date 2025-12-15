@@ -9,32 +9,34 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   
-  /* Modern Corporate Marine Theme */
+  /* Original YDFDA Brand Colors */
   --color-background: hsl(0 0% 100%);
-  --color-foreground: hsl(222 47% 11%); /* Dark Navy text */
+  --color-foreground: hsl(215 28% 17%); /* Darker blue-grey for text */
 
-  --color-primary: hsl(221 83% 53%); /* Vibrant Blue */
-  --color-primary-foreground: hsl(210 40% 98%);
+  /* Strong Royal Blue from logo/header */
+  --color-primary: hsl(215 80% 35%); 
+  --color-primary-foreground: hsl(0 0% 100%);
 
-  --color-secondary: hsl(45 93% 47%); /* Gold/Amber */
-  --color-secondary-foreground: hsl(222 47% 11%);
+  /* Gold/Yellow accent */
+  --color-secondary: hsl(45 90% 50%); 
+  --color-secondary-foreground: hsl(215 80% 20%);
 
-  --color-muted: hsl(210 40% 96.1%);
-  --color-muted-foreground: hsl(215 16% 47%);
+  --color-muted: hsl(210 20% 96%);
+  --color-muted-foreground: hsl(215 20% 45%);
 
-  --color-accent: hsl(210 40% 96.1%);
-  --color-accent-foreground: hsl(222 47% 11%);
+  --color-accent: hsl(210 20% 96%);
+  --color-accent-foreground: hsl(215 80% 35%);
 
   --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(222 47% 11%);
+  --color-card-foreground: hsl(215 28% 17%);
   --color-card-border: hsl(214 32% 91%);
 
   --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(222 47% 11%);
+  --color-popover-foreground: hsl(215 28% 17%);
 
   --color-border: hsl(214 32% 91%);
   --color-input: hsl(214 32% 91%);
-  --color-ring: hsl(221 83% 53%);
+  --color-ring: hsl(215 80% 35%);
 
   --color-destructive: hsl(0 84.2% 60.2%);
   --color-destructive-foreground: hsl(210 40% 98%);
