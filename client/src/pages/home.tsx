@@ -2,9 +2,10 @@ import Layout from "@/components/layout";
 import { Hero } from "@/components/hero";
 import { Section, FeatureCard } from "@/components/section";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Anchor, Briefcase, FileText, ExternalLink } from "lucide-react";
+import { GraduationCap, Anchor, Briefcase, FileText, Ship, LineChart } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -16,50 +17,72 @@ export default function Home() {
         size="large"
       />
 
-      <Section className="bg-white">
+      <Section className="bg-white py-0 md:py-0">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 -mt-32 relative z-10 shadow-xl rounded-lg overflow-hidden">
-            <FeatureCard 
-              title="Scholarships"
-              description="Financial aid for undergraduate, graduate, and vocational students from our six member villages."
-              href="/scholarships"
-              icon={GraduationCap}
-              delay={0.1}
-              className="bg-[hsl(169,24%,40%)] text-white h-full"
-              iconClassName="text-white bg-white/20"
-              titleClassName="text-white"
-              textClassName="text-white/90"
-              buttonClassName="text-white hover:text-white/80"
-            />
-            <FeatureCard 
-              title="Local Enterprises"
-              description="Supporting local businesses like Yukon Marine Manufacturing and River Towing."
-              href="/enterprises"
-              icon={Anchor}
-              delay={0.2}
-              className="bg-[hsl(25,53%,55%)] text-white h-full"
-              iconClassName="text-white bg-white/20"
-              titleClassName="text-white"
-              textClassName="text-white/90"
-              buttonClassName="text-white hover:text-white/80"
-            />
-            <FeatureCard 
-              title="Employment"
-              description="Current job openings and career opportunities within the association."
-              href="/employment"
-              icon={Briefcase}
-              delay={0.3}
-              className="bg-[hsl(180,33%,30%)] text-white h-full"
-              iconClassName="text-white bg-white/20"
-              titleClassName="text-white"
-              textClassName="text-white/90"
-              buttonClassName="text-white hover:text-white/80"
-            />
+          <div className="grid md:grid-cols-3 gap-6 -mt-24 relative z-10 mb-24">
+            
+            {/* Feature Block 1: Scholarships */}
+            <Link href="/scholarships">
+              <div className="group cursor-pointer h-full relative overflow-hidden rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="absolute inset-0 bg-[#4e7f76] transition-colors duration-300 group-hover:bg-[#3d635c]" />
+                <div className="relative p-8 h-full flex flex-col items-center text-center text-white">
+                  <div className="mb-6 p-4 bg-white/10 rounded-full backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                    <GraduationCap className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 font-heading tracking-wide">Scholarships</h3>
+                  <p className="text-white/90 leading-relaxed mb-6 flex-grow">
+                    Educational funding for undergraduate, graduate, and vocational students from our member villages.
+                  </p>
+                  <span className="inline-flex items-center text-sm font-bold uppercase tracking-wider border-b-2 border-white/30 pb-1 group-hover:border-white transition-all">
+                    Apply Now
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Feature Block 2: Local Enterprises */}
+            <Link href="/enterprises">
+              <div className="group cursor-pointer h-full relative overflow-hidden rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="absolute inset-0 bg-[#C97E51] transition-colors duration-300 group-hover:bg-[#b06d45]" />
+                <div className="relative p-8 h-full flex flex-col items-center text-center text-white">
+                  <div className="mb-6 p-4 bg-white/10 rounded-full backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                    <Anchor className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 font-heading tracking-wide">Local Enterprises</h3>
+                  <p className="text-white/90 leading-relaxed mb-6 flex-grow">
+                    Supporting economic growth through Yukon Marine Manufacturing, River Towing, and Kwik'pak Fisheries.
+                  </p>
+                  <span className="inline-flex items-center text-sm font-bold uppercase tracking-wider border-b-2 border-white/30 pb-1 group-hover:border-white transition-all">
+                    View Services
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Feature Block 3: Employment */}
+            <Link href="/employment">
+              <div className="group cursor-pointer h-full relative overflow-hidden rounded-xl shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="absolute inset-0 bg-[#336666] transition-colors duration-300 group-hover:bg-[#264d4d]" />
+                <div className="relative p-8 h-full flex flex-col items-center text-center text-white">
+                  <div className="mb-6 p-4 bg-white/10 rounded-full backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                    <Briefcase className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 font-heading tracking-wide">Employment</h3>
+                  <p className="text-white/90 leading-relaxed mb-6 flex-grow">
+                    Year-round and seasonal job opportunities in fisheries, manufacturing, and administration.
+                  </p>
+                  <span className="inline-flex items-center text-sm font-bold uppercase tracking-wider border-b-2 border-white/30 pb-1 group-hover:border-white transition-all">
+                    View Openings
+                  </span>
+                </div>
+              </div>
+            </Link>
+
           </div>
         </div>
       </Section>
 
-      <Section className="bg-[#f5f5f5]">
+      <Section className="bg-[#f5f5f5] pt-0">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div 
@@ -72,6 +95,26 @@ export default function Home() {
               <p className="text-lg text-[#555555] leading-relaxed">
                 Since 1999, we have been dedicated to improving the economic conditions of the Yukon Delta region. Through our skiff building programs and educational scholarships, we invest directly back into our people.
               </p>
+              
+              <div className="grid sm:grid-cols-2 gap-4 py-4">
+                <Link href="/investments">
+                  <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-[#dddddd] cursor-pointer hover:border-[#4e7f76] transition-colors group">
+                    <div className="bg-[#4e7f76]/10 p-2 rounded text-[#4e7f76]">
+                      <Ship className="w-5 h-5" />
+                    </div>
+                    <span className="font-bold text-[#333333] group-hover:text-[#4e7f76]">Offshore Investments</span>
+                  </div>
+                </Link>
+                <Link href="/reports">
+                  <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm border border-[#dddddd] cursor-pointer hover:border-[#4e7f76] transition-colors group">
+                    <div className="bg-[#4e7f76]/10 p-2 rounded text-[#4e7f76]">
+                      <LineChart className="w-5 h-5" />
+                    </div>
+                    <span className="font-bold text-[#333333] group-hover:text-[#4e7f76]">Annual Reports</span>
+                  </div>
+                </Link>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link href="/apply">
                   <Button size="lg" className="bg-[#d16103] hover:bg-[#4e7f76] text-white font-semibold transition-colors duration-300">

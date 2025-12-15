@@ -10,6 +10,8 @@ import Scholarships from "@/pages/scholarships";
 import Enterprises from "@/pages/enterprises";
 import Employment from "@/pages/employment";
 import Apply from "@/pages/apply";
+import Investments from "@/pages/investments";
+import Reports from "@/pages/reports";
 
 function Router() {
   return (
@@ -19,6 +21,8 @@ function Router() {
       <Route path="/enterprises" component={Enterprises} />
       <Route path="/employment" component={Employment} />
       <Route path="/apply" component={Apply} />
+      <Route path="/investments" component={Investments} />
+      <Route path="/reports" component={Reports} />
       <Route component={NotFound} />
     </Switch>
   );

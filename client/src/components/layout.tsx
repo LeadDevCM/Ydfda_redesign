@@ -13,6 +13,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { name: "Scholarships", href: "/scholarships" },
     { name: "Enterprises", href: "/enterprises" },
     { name: "Employment", href: "/employment" },
+    { name: "Investments", href: "/investments" },
+    { name: "Reports", href: "/reports" },
   ];
 
   return (
@@ -28,7 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <Link 
                 key={item.name} 
@@ -44,7 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
             <Link href="/apply">
-              <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold">
+              <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold ml-2">
                 Apply Online
               </Button>
             </Link>
@@ -52,7 +54,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -62,7 +64,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <div className="md:hidden border-t bg-background p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
+          <div className="lg:hidden border-t bg-background p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
             {navItems.map((item) => (
               <Link 
                 key={item.name} 
@@ -124,9 +126,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-secondary transition-colors text-sm">
-                  Brochures
-                </a>
+                <Link href="/reports" className="text-slate-400 hover:text-secondary transition-colors text-sm">
+                  Annual Reports
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-slate-400 hover:text-secondary transition-colors text-sm">
