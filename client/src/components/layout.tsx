@@ -1,8 +1,14 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +42,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary outline-none text-muted-foreground">
+                About Us <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <Link href="/about-us/staff">
+                  <DropdownMenuItem className="cursor-pointer">Staff</DropdownMenuItem>
+                </Link>
+                <Link href="/about-us/board">
+                  <DropdownMenuItem className="cursor-pointer">Board of Directors</DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             {navItems.map((item) => (
               <Link 
                 key={item.name} 
@@ -70,6 +90,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Mobile Nav */}
         {isOpen && (
           <div className="lg:hidden border-t bg-background p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
+            <div className="py-2 px-4 font-bold text-muted-foreground uppercase text-xs tracking-wider">About Us</div>
+            <Link href="/about-us/staff" className="pl-8 py-2 text-lg font-medium hover:bg-muted rounded-md" onClick={() => setIsOpen(false)}>
+              Staff
+            </Link>
+            <Link href="/about-us/board" className="pl-8 py-2 text-lg font-medium hover:bg-muted rounded-md" onClick={() => setIsOpen(false)}>
+              Board of Directors
+            </Link>
+            
+            <div className="border-t my-2" />
+            
             {navItems.map((item) => (
               <Link 
                 key={item.name} 
@@ -120,6 +150,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
               ))}
               <li>
+                <Link href="/about-us/staff" className="text-slate-400 hover:text-secondary transition-colors text-sm cursor-pointer">
+                  Staff
+                </Link>
+              </li>
+              <li>
+                <Link href="/about-us/board" className="text-slate-400 hover:text-secondary transition-colors text-sm cursor-pointer">
+                  Board of Directors
+                </Link>
+              </li>
+              <li>
                 <Link href="/apply" className="text-slate-400 hover:text-secondary transition-colors text-sm cursor-pointer">
                   Apply Online
                 </Link>
@@ -141,9 +181,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-secondary transition-colors text-sm">
+                <Link href="/about-us/board" className="text-slate-400 hover:text-secondary transition-colors text-sm">
                   Board of Directors
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

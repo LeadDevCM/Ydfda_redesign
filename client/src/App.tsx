@@ -12,6 +12,8 @@ import Employment from "@/pages/employment";
 import Apply from "@/pages/apply";
 import Investments from "@/pages/investments";
 import Reports from "@/pages/reports";
+import Staff from "@/pages/about-us/staff";
+import Board from "@/pages/about-us/board";
 
 function Router() {
   return (
@@ -23,6 +25,8 @@ function Router() {
       <Route path="/apply" component={Apply} />
       <Route path="/investments" component={Investments} />
       <Route path="/reports" component={Reports} />
+      <Route path="/about-us/staff" component={Staff} />
+      <Route path="/about-us/board" component={Board} />
       <Route component={NotFound} />
     </Switch>
   );
