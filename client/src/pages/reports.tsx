@@ -1,126 +1,29 @@
 import Layout from "@/components/layout";
 import { Hero } from "@/components/hero";
 import { Section } from "@/components/section";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Download, ExternalLink } from "lucide-react";
 
 export default function Reports() {
   const reports = [
-    { 
-      year: 2022, 
-      file: "YDFDA 2022 Annual Report-compressed.pdf", 
-      size: "7.06 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2024-05/Screen%20Shot%202024-05-21%20at%206.36.49%20PM.png?itok=NI6-QMJm"
-    },
-    { 
-      year: 2021, 
-      file: "Print YDFDA Annual Report 2021 .pdf", 
-      size: "16.52 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2024-05/Screen%20Shot%202024-05-21%20at%205.44.30%20PM.png?itok=JOmQtmmg"
-    },
-    { 
-      year: 2020, 
-      file: "YDFDA_2020 AnnReport (1).pdf", 
-      size: "1.57 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2022-05/Screen%20Shot%202022-05-14%20at%207.39.19%20PM.png?itok=I3gRkR7q"
-    },
-    { 
-      year: 2019, 
-      file: "YDFDA_2019 AnnReport .pdf", 
-      size: "1.72 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2022-05/Screen%20Shot%202022-05-14%20at%207.35.53%20PM.png?itok=uaVZmHWW"
-    },
-    { 
-      year: 2018, 
-      file: "YDFDA-2018-Annual-Report (1).pdf", 
-      size: "1.06 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-YDFDA-2018-Annual-Report%20%281%29.jpg?itok=l3AFVmU_"
-    },
-    { 
-      year: 2017, 
-      file: "YDFDA-2017-Annual-Report (1).pdf", 
-      size: "1.51 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-YDFDA-2017-Annual-Report.jpg?itok=ogIBOuRw"
-    },
-    { 
-      year: 2016, 
-      file: "YDFDA-2016-Annual-Report (1).pdf", 
-      size: "1.78 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-YDFDA-2016-Annual-Report.jpg?itok=MMxZG8tD"
-    },
-    { 
-      year: 2015, 
-      file: "YDFDA-2015-Annual-Report (1).pdf", 
-      size: "1.9 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-YDFDA-2015-Annual-Report.jpg?itok=8Ztkbbtt"
-    },
-    { 
-      year: 2014, 
-      file: "YDFDA2014AnnReportWebsite-Version.pdf", 
-      size: "4.09 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-YDFDA2014AnnReportWebsite-Version.jpg?itok=poL6wX1S"
-    },
-    { 
-      year: 2013, 
-      file: "annual-ydfda-2013.pdf", 
-      size: "2.7 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-annual-ydfda-2013.jpg?itok=_bj9AcgM"
-    },
-    { 
-      year: 2012, 
-      file: "YDFDA2012AnnReportWebVersion.pdf", 
-      size: "3.67 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-YDFDA2012AnnReportWebVersion.jpg?itok=_rN7u-fO"
-    },
-    { 
-      year: 2011, 
-      file: "annualydfda2011.pdf", 
-      size: "1.18 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-annualydfda2011.jpg?itok=RVAJ1N17"
-    },
-    { 
-      year: 2010, 
-      file: "YDFDA2010AnnualReport-FINAL.pdf", 
-      size: "1.45 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-YDFDA2010AnnualReport-FINAL.jpg?itok=yOIb1ZuT"
-    },
-    { 
-      year: 2009, 
-      file: "AnnualReport2009.pdf", 
-      size: "1.18 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-AnnualReport2009.jpg?itok=SSJqesuh"
-    },
-    { 
-      year: 2008, 
-      file: "annual-ydfda-2008.pdf", 
-      size: "993.13 KB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-annual-ydfda-2008.jpg?itok=-kwLjS3Z"
-    },
-    { 
-      year: 2007, 
-      file: "annual-ydfda-2007.pdf", 
-      size: "1.13 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-annual-ydfda-2007.jpg?itok=WCZt_bDH"
-    },
-    { 
-      year: 2006, 
-      file: "annual-ydfda-2006.pdf", 
-      size: "1.06 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-annual-ydfda-2006.jpg?itok=6cnoDhLW"
-    },
-    { 
-      year: 2005, 
-      file: "annual-ydfda-2005.pdf", 
-      size: "1.01 MB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-annual-ydfda-2005.jpg?itok=PjGDSfTr"
-    },
-    { 
-      year: 2004, 
-      file: "annual-ydfda-2004.pdf", 
-      size: "970.68 KB",
-      image: "https://ydfda.org/sites/default/files/styles/medium/public/2020-08/pdf-preview-annual-ydfda-2004.jpg?itok=vYfVtAZq"
-    }
+    { year: 2022, size: "7.06 MB", image: "/images/reports/2022-thumb.png" },
+    { year: 2021, size: "16.52 MB", image: "/images/reports/2021-thumb.png" },
+    { year: 2020, size: "1.57 MB", image: "/images/reports/2020-thumb.png" },
+    { year: 2019, size: "1.72 MB", image: "/images/reports/2019-thumb.png" },
+    { year: 2018, size: "1.06 MB", image: "/images/reports/2018-thumb.jpg" },
+    { year: 2017, size: "1.51 MB", image: "/images/reports/2017-thumb.jpg" },
+    { year: 2016, size: "1.78 MB", image: "/images/reports/2016-thumb.jpg" },
+    { year: 2015, size: "1.9 MB", image: "/images/reports/2015-thumb.jpg" },
+    { year: 2014, size: "4.09 MB", image: "/images/reports/2014-thumb.jpg" },
+    { year: 2013, size: "2.7 MB", image: "/images/reports/2013-thumb.jpg" },
+    { year: 2012, size: "3.67 MB", image: "/images/reports/2012-thumb.jpg" },
+    { year: 2011, size: "1.18 MB", image: "/images/reports/2011-thumb.jpg" },
+    { year: 2010, size: "1.45 MB", image: "/images/reports/2010-thumb.jpg" },
+    { year: 2009, size: "1.18 MB", image: "/images/reports/2009-thumb.jpg" },
+    { year: 2008, size: "993.13 KB", image: "/images/reports/2008-thumb.jpg" },
+    { year: 2007, size: "1.13 MB", image: "/images/reports/2007-thumb.jpg" },
+    { year: 2006, size: "1.06 MB", image: "/images/reports/2006-thumb.jpg" },
+    { year: 2005, size: "1.01 MB", image: "/images/reports/2005-thumb.jpg" },
+    { year: 2004, size: "970.68 KB", image: "/images/reports/2004-thumb.jpg" }
   ];
 
   return (
@@ -164,8 +67,10 @@ export default function Reports() {
             {reports.map((report) => (
               <a 
                 key={report.year} 
-                href={`#download-${report.year}`} 
+                href={`/reports/${report.year}-annual-report.pdf`}
+                download
                 className="group flex flex-col h-full bg-white border border-[#dddddd] rounded hover:shadow-lg transition-all hover:-translate-y-1"
+                data-testid={`report-download-${report.year}`}
               >
                 <div className="aspect-[3/4] overflow-hidden bg-slate-100 border-b border-[#dddddd] relative">
                   <img 
