@@ -3,24 +3,24 @@ import { Hero } from "@/components/hero";
 import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { FileText, Anchor, Ship, Sprout, Fish } from "lucide-react";
+import { FileText, Download, Anchor, Ship, Sprout, Fish } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 
 export default function Enterprises() {
   const flatSkiffs = [
-    { size: "20' X 6'", price: "$25,500.00", tax: "$25,907.50" },
-    { size: "22' X 6'", price: "$26,250.00", tax: "$26,668.75" },
-    { size: "22' X 7'", price: "$27,750.00", tax: "$28,191.25" },
-    { size: "24' X 7'", price: "$32,000.00", tax: "$32,505.00" },
+    { size: "20' x 6'", price: "$25,500.00", tax: "$25,907.50", halfDown: "$12,953.75" },
+    { size: "22' x 6'", price: "$26,250.00", tax: "$26,668.75", halfDown: "$13,334.38" },
+    { size: "22' x 7'", price: "$27,750.00", tax: "$28,191.25", halfDown: "$14,095.63" },
+    { size: "24' x 7'", price: "$32,000.00", tax: "$32,505.00", halfDown: "$16,252.50" },
   ];
 
   const semiVSkiffs = [
-    { size: "18' X 5'", price: "$21,900.00", tax: "$22,253.50" },
-    { size: "20' X 5'9\"", price: "$25,500.00", tax: "$25,907.50" },
-    { size: "22' X 5'9\"", price: "$26,250.00", tax: "$26,668.75" },
-    { size: "22' X 7'", price: "$27,750.00", tax: "$28,191.25" },
-    { size: "24' X 7'", price: "$32,000.00", tax: "$32,505.00" },
+    { size: "18' x 5'", price: "$19,400.00", tax: "$19,753.50", halfDown: "$9,876.75" },
+    { size: "20' x 5'9\"", price: "$25,500.00", tax: "$25,907.50", halfDown: "$12,953.75" },
+    { size: "22' x 5'9\"", price: "$26,250.00", tax: "$26,668.75", halfDown: "$13,334.38" },
+    { size: "22' x 7'", price: "$27,750.00", tax: "$28,191.25", halfDown: "$14,095.63" },
+    { size: "24' x 7'", price: "$32,000.00", tax: "$32,505.00", halfDown: "$16,252.50" },
   ];
 
   return (
@@ -55,15 +55,22 @@ export default function Enterprises() {
                     In the summer months, YMM transitions to repairing boats for people in the surrounding villages. 
                     From 1999 through 2017, we have proudly built a total of 354 skiffs for our community.
                   </p>
-                   <a href="https://ydfda.org/sites/default/files/2024-05/CCF05202024.pdf" target="_blank" rel="noopener noreferrer">
-                    <Button className="gap-2 bg-[#d16103] hover:bg-[#4e7f76]">
-                      <FileText className="h-4 w-4" /> Download 2024 Brochure
-                    </Button>
-                  </a>
+                  <div className="flex flex-wrap gap-3">
+                    <a href="/documents/2026-ymm-boat-price-list.pdf" download data-testid="button-download-price-list">
+                      <Button className="gap-2 bg-[#d16103] hover:bg-[#4e7f76]">
+                        <Download className="h-4 w-4" /> Download 2026 Price List
+                      </Button>
+                    </a>
+                    <a href="https://ydfda.org/sites/default/files/2024-05/CCF05202024.pdf" target="_blank" rel="noopener noreferrer" data-testid="button-download-brochure">
+                      <Button variant="outline" className="gap-2 border-[#4e7f76] text-[#4e7f76] hover:bg-[#4e7f76] hover:text-white">
+                        <FileText className="h-4 w-4" /> View 2024 Brochure
+                      </Button>
+                    </a>
+                  </div>
                 </div>
                 <Card className="border-[#dddddd]">
                   <CardHeader>
-                    <CardTitle className="text-[#336666]">2024 Pricing Overview</CardTitle>
+                    <CardTitle className="text-[#336666]">2026 Pricing Overview</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex justify-between items-center border-b pb-2">
@@ -72,11 +79,20 @@ export default function Enterprises() {
                     </div>
                     <div className="flex justify-between items-center border-b pb-2">
                        <span>Semi-V Skiffs</span>
-                       <span className="font-bold text-[#333333]">From $21,900</span>
+                       <span className="font-bold text-[#333333]">From $19,400</span>
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center border-b pb-2">
                        <span>Shrimpy Skiff</span>
                        <span className="font-bold text-[#333333]">$32,200</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                       <span>Aluminum Console</span>
+                       <span className="font-bold text-[#333333]">$1,200</span>
+                    </div>
+                    <div className="pt-2">
+                      <a href="/documents/2026-ymm-boat-price-list.pdf" download className="text-sm text-[#d16103] hover:underline flex items-center gap-1" data-testid="link-price-list-pdf">
+                        <Download className="h-3 w-3" /> Full price list with tax &amp; half-down amounts
+                      </a>
                     </div>
                   </CardContent>
                 </Card>
@@ -85,20 +101,24 @@ export default function Enterprises() {
               {/* Pricing Tables */}
               <div className="mt-8 grid md:grid-cols-2 gap-8">
                  <div>
-                  <h3 className="text-xl font-bold mb-4 text-[#336666]">Flat Yukon Skiffs</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#336666]">Flat Yukon Skiffs — 2026 Prices</h3>
                   <div className="rounded-md border border-[#dddddd]">
                     <Table>
                       <TableHeader>
                         <TableRow className="bg-[#f5f5f5]">
                           <TableHead>Size</TableHead>
                           <TableHead className="text-right">Price</TableHead>
+                          <TableHead className="text-right">With Tax</TableHead>
+                          <TableHead className="text-right">Half Down</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
                         {flatSkiffs.map((skiff) => (
-                          <TableRow key={skiff.size}>
+                          <TableRow key={skiff.size} data-testid={`row-flat-skiff-${skiff.size}`}>
                             <TableCell className="font-medium">{skiff.size}</TableCell>
                             <TableCell className="text-right">{skiff.price}</TableCell>
+                            <TableCell className="text-right text-[#555555]">{skiff.tax}</TableCell>
+                            <TableCell className="text-right text-[#555555]">{skiff.halfDown}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
@@ -106,26 +126,91 @@ export default function Enterprises() {
                   </div>
                  </div>
                  <div>
-                  <h3 className="text-xl font-bold mb-4 text-[#336666]">Semi-V Skiffs</h3>
+                  <h3 className="text-xl font-bold mb-4 text-[#336666]">Semi-V Skiffs — 2026 Prices</h3>
                   <div className="rounded-md border border-[#dddddd]">
                     <Table>
                       <TableHeader>
                         <TableRow className="bg-[#f5f5f5]">
                           <TableHead>Size</TableHead>
                           <TableHead className="text-right">Price</TableHead>
+                          <TableHead className="text-right">With Tax</TableHead>
+                          <TableHead className="text-right">Half Down</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
                         {semiVSkiffs.map((skiff) => (
-                          <TableRow key={skiff.size}>
+                          <TableRow key={skiff.size} data-testid={`row-semi-skiff-${skiff.size}`}>
                             <TableCell className="font-medium">{skiff.size}</TableCell>
                             <TableCell className="text-right">{skiff.price}</TableCell>
+                            <TableCell className="text-right text-[#555555]">{skiff.tax}</TableCell>
+                            <TableCell className="text-right text-[#555555]">{skiff.halfDown}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
                     </Table>
                   </div>
                  </div>
+              </div>
+
+              {/* Shrimpy Skiff & Aluminum Console */}
+              <div className="mt-8 grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-bold mb-4 text-[#336666]">Shrimpy Skiff — 2026 Prices</h3>
+                  <div className="rounded-md border border-[#dddddd]">
+                    <Table>
+                      <TableHeader>
+                        <TableRow className="bg-[#f5f5f5]">
+                          <TableHead>Size</TableHead>
+                          <TableHead className="text-right">Price</TableHead>
+                          <TableHead className="text-right">With Tax</TableHead>
+                          <TableHead className="text-right">Half Down</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow data-testid="row-shrimpy-skiff">
+                          <TableCell className="font-medium">24' x 7'</TableCell>
+                          <TableCell className="text-right">$32,200.00</TableCell>
+                          <TableCell className="text-right text-[#555555]">$32,708.00</TableCell>
+                          <TableCell className="text-right text-[#555555]">$16,354.00</TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4 text-[#336666]">Add-Ons</h3>
+                  <div className="rounded-md border border-[#dddddd]">
+                    <Table>
+                      <TableHeader>
+                        <TableRow className="bg-[#f5f5f5]">
+                          <TableHead>Item</TableHead>
+                          <TableHead className="text-right">Price</TableHead>
+                          <TableHead className="text-right">With Tax</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow data-testid="row-aluminum-console">
+                          <TableCell className="font-medium">Aluminum Console</TableCell>
+                          <TableCell className="text-right">$1,200.00</TableCell>
+                          <TableCell className="text-right text-[#555555]">$1,248.00</TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </div>
+                </div>
+              </div>
+
+              {/* PDF Download Banner */}
+              <div className="mt-8 bg-[#4e7f76]/5 border border-[#4e7f76]/20 rounded-lg p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <p className="font-semibold text-[#336666]">2026 YMM New Boat Price List</p>
+                  <p className="text-sm text-[#555555]">Complete pricing sheet including tax and half-down payment amounts.</p>
+                </div>
+                <a href="/documents/2026-ymm-boat-price-list.pdf" download data-testid="button-download-price-banner">
+                  <Button className="gap-2 bg-[#d16103] hover:bg-[#336666] whitespace-nowrap">
+                    <Download className="h-4 w-4" /> Download PDF
+                  </Button>
+                </a>
               </div>
             </div>
 
